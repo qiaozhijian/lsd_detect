@@ -1,0 +1,5 @@
+*.sndja
+build/
+cmake-build-*
+.idea
+.kdev4/
