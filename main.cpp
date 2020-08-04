@@ -1,7 +1,6 @@
 //
 // Created by qzj on 2020/8/4.
 //
-#include "lsd.h"
 #include "ros/ros.h"
 #include<opencv2/core/core.hpp>
 #include "opencv2/core/utility.hpp"

@@ -23,7 +23,6 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(OpenCV REQUIRED QUIET)
 
-FIND_PACKAGE(yaml-cpp REQUIRED CONFIG PATHS ${YAML_PATHS})
 
 catkin_package(
   INCLUDE_DIRS include
@@ -38,7 +37,6 @@ include_directories(
     include/
   ${catkin_INCLUDE_DIRS}
 		${OpenCV_INCLUDE_DIRS}
-		${YAML_CPP_INCLUDE_DIRS}
 		${PROJECT_SOURCE_DIR}/Thirdparty/line_descriptor/include
 )
 
@@ -46,11 +44,6 @@ message(${PROJECT_SOURCE_DIR})
 
 list(APPEND SELF_UTILS
 		src/ExtractLineSegment.cpp
-		src/config.cpp
-		src/gridStructure.cpp
-		src/lineIterator.cpp
-		src/stereoFeatures.cpp
-		src/matching.cpp
 		)
   
 add_library(self_utils SHARED ${SELF_UTILS} )
@@ -59,7 +52,6 @@ target_link_libraries(self_utils
 		${EIGEN3_LIBS}
 		${OpenCV_LIBS}
 		${PROJECT_SOURCE_DIR}/Thirdparty/line_descriptor/lib/liblinedesc.so
-		${YAML_CPP_LIBRARIES}
 		)
 
 add_executable(lsd_detect_node main.cpp)
