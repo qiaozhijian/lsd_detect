@@ -20,7 +20,8 @@ int main(int argc, char **argv)
 
     ROS_INFO("\033[1;32m---->\033[0m lsd_detect_node Started.");
 
-    cv::Mat image = cv::imread("./000000.jpg", CV_LOAD_IMAGE_UNCHANGED);
+    cv::Mat image = cv::imread("./1.jpeg", CV_LOAD_IMAGE_UNCHANGED);
+    cv::resize(image,image,cv::Size(640*3,480*3));
 
     StructureSLAM::LineSegment* pLineSegment = new StructureSLAM::LineSegment();
 
@@ -35,9 +36,9 @@ int main(int argc, char **argv)
 #else
     drawKeylines(image, mvKeylinesUn, image, Scalar(0, 0, 255));     //自己添加的，绘制特征线
 #endif
-
-    cv::imshow("line",image);
-    waitKey(0);
+    //cv::imshow("line",image);
+    //waitKey(0);
+    cv::imwrite("re.png",image);
 
     return 0;
 }

@@ -32,7 +32,7 @@ namespace StructureSLAM {
         opts.scale = 1.2;
         opts.sigma_scale = 0.6;
         opts.quant = 2.0;
-        opts.ang_th = 22.5;
+        opts.ang_th = 30.5;
         opts.log_eps = 1.0;
         opts.density_th = 0.6;
         opts.n_bins = 1024;
