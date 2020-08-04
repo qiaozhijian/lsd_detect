@@ -1,7 +1,6 @@
 //
 // Created by qzj on 2020/8/4.
 //
-#include "ros/ros.h"
 #include<opencv2/core/core.hpp>
 #include "opencv2/core/utility.hpp"
 #include <opencv2/imgproc.hpp>
@@ -13,12 +12,6 @@ using namespace cv;
 
 int main(int argc, char **argv)
 {
-
-    ros::init(argc, argv, "lsd_detect_node");
-
-    ros::NodeHandle n;
-
-    ROS_INFO("\033[1;32m---->\033[0m lsd_detect_node Started.");
 
     cv::Mat image = cv::imread("./1.jpeg", CV_LOAD_IMAGE_UNCHANGED);
     cv::resize(image,image,cv::Size(640*3,480*3));
@@ -36,9 +29,9 @@ int main(int argc, char **argv)
 #else
     drawKeylines(image, mvKeylinesUn, image, Scalar(0, 0, 255));     //自己添加的，绘制特征线
 #endif
-    //cv::imshow("line",image);
-    //waitKey(0);
-    cv::imwrite("re.png",image);
+    cv::imshow("line",image);
+    waitKey(0);
+    //cv::imwrite("re.png",image);
 
     return 0;
 }
