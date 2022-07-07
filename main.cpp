@@ -13,8 +13,7 @@ using namespace cv;
 int main(int argc, char **argv)
 {
 
-    cv::Mat image = cv::imread("./1.jpeg", CV_LOAD_IMAGE_UNCHANGED);
-    cv::resize(image,image,cv::Size(640*3,480*3));
+    cv::Mat image = cv::imread("./data/1.jpeg", CV_LOAD_IMAGE_UNCHANGED);
 
     StructureSLAM::LineSegment* pLineSegment = new StructureSLAM::LineSegment();
 
@@ -29,6 +28,7 @@ int main(int argc, char **argv)
 #else
     drawKeylines(image, mvKeylinesUn, image, Scalar(0, 0, 255));     //自己添加的，绘制特征线
 #endif
+    cv::resize(image, image,cv::Size(image.cols/4, image.rows/4));
     cv::imshow("line",image);
     waitKey(0);
     //cv::imwrite("re.png",image);
